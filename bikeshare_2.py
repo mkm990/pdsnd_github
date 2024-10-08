@@ -27,9 +27,21 @@ while True:
 
     # get user input for month (all, january, february, ... , june)
 
+while True:
+        month = input("Please enter a month (all, january, february, ..., june): ").lower()
+        if month in ['january', 'february', 'march', 'april', 'may', 'june', 'all']:
+            break
+        else:
+            print("Invalid input. Please choose a valid month.")
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
 
+while True:
+        day = input("Please enter a day (all, monday, tuesday, ..., sunday): ").lower()
+        if day in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']:
+            break
+        else:
+            print("Invalid input. Please choose a valid day.")
 
     print('-'*40)
     return city, month, day
