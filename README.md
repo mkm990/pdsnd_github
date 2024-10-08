@@ -17,6 +17,7 @@ Display user stats including counts of user types, gender, and birth year distri
 `new_york_city`
 `washington`
 `.gitignore`
+`bikeshare_2.py`
 
 ### Credits
 Ive gathered all my information from https://github.com/udacity/pdsnd_github .
