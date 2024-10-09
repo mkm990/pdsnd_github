@@ -6,6 +6,23 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
+def get_user_input(prompt, options):
+    """
+    Get validated user input from a list of options.
+    
+    Args:
+        prompt (str): Message to show the user
+        options (list): List of valid options to choose from
+    
+    Returns:
+        str: The user's chosen option
+    """
+    while True:
+        user_input = input(prompt).lower()
+        if user_input in options:
+            return user_input
+        print("Invalid input. Please choose from:", options)
+
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -17,13 +34,14 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+city = get_user_input("Which city (chicago, new york city, washington)? ", ['chicago', 'new york city', 'washington'])
 
 
     # get user input for month (all, january, february, ... , june)
-
+month = get_user_input("Which month (all, january, february, ... , june)? ", ['all', 'january', 'february', 'march', 'april', 'may', 'june'])
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
-
+day = get_user_input("Which day (all, monday, tuesday, ... sunday)? ", ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'])
 
     print('-'*40)
     return city, month, day
