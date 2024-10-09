@@ -5,6 +5,23 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
+def get_user_input(prompt, options):
+    """
+    Get validated user input from a list of options.
+    
+    Args:
+        prompt (str): Message to show the user
+        options (list): List of valid options to choose from
+    
+    Returns:
+        str: The user's chosen option
+    """
+    while True:
+        user_input = input(prompt).lower()
+        if user_input in options:
+            return user_input
+        print("Invalid input. Please choose from:", options)
+
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -58,6 +75,16 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
+    # Load data into a DataFrame
+    df = pd.read_csv(CITY_DATA[city])
+
+    # Convert the Start Time column to datetime
+    df['Start Time'] = pd.to_datetime(df['Start Time'])
+
+    # Extract month and day of week from Start Time to create new columns
+    df['month'] = df['Start Time'].dt.month
+    df['day_of_week'] = df['Start Time'].dt.day_name()
+
 
 
     return df
